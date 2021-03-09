@@ -1,12 +1,13 @@
 ﻿using System;
 using Word = Microsoft.Office.Interop.Word;
-using System.IO.Directory.CreateDirectory;
+using System.IO;
 
 
 namespace Journal
 {
     class Program
     {
+        // version b09
         const string JOURNAL_PATH = @"C:\Users\engrb\OneDrive\bugs\Journal";
         static void Main(string[] args)
         {
@@ -31,14 +32,17 @@ namespace Journal
             objWord.Selection.TypeText(Environment.NewLine);
             objDoc.Paragraphs[2].set_Style(Word.WdBuiltinStyle.wdStyleNormal);
 
-
-            objDoc.SaveAs2($"{JOURNAL_PATH}\\{strFolderYear()}\\a.docx");
-
-            /*
-            objDoc.SaveAs2($"{JOURNAL_PATH}\\{strFolderYear()}\\" +
-                $"{strFolderMonth()}\\{strFilename()}.docx");
-            */
-
+            try
+            {
+                Directory.CreateDirectory($"{JOURNAL_PATH}\\" +
+                    $"{strFolderYear()}\\{strFolderMonth()}");
+                objDoc.SaveAs2($"{JOURNAL_PATH}\\{strFolderYear()}\\" +
+                    $"{strFolderMonth()}\\{strFilename()}.docx");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+            }
             objWord.Activate();
         }
 
