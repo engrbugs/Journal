@@ -7,15 +7,11 @@ namespace Journal
 {
     class Program
     {
-        // version b09
+        const string VERSION = "b09";
         const string JOURNAL_PATH = @"C:\Users\engrb\OneDrive\bugs\Journal";
         static void Main(string[] args)
         {
-            Console.WriteLine(strFolderYear());
-            Console.WriteLine(strFolderMonth());
-            Console.WriteLine(strFilename());
-            Console.WriteLine($"{JOURNAL_PATH}\\{strFolderYear()}\\" +
-                $"{strFolderMonth()}\\{strFilename()}.docx");
+            Console.WriteLine($"Creating Journal {VERSION}");
 
             Word.Application objWord = new Word.Application();
             objWord.Visible = true;

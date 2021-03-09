@@ -3,6 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
+    <StartupObject>Journal.Program</StartupObject>
+    <ApplicationIcon>icons8-google-science-journal-144.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
