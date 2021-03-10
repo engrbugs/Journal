@@ -97,7 +97,7 @@ namespace Journal
             Word.Application objWord = new Word.Application();
             Console.WriteLine($"Making it visible and maximized");
             objWord.Visible = true;
-            objWord.WindowState = Word.WdWindowState.wdWindowStateNormal;
+            objWord.WindowState = Word.WdWindowState.wdWindowStateMaximize;
 
             Console.WriteLine($"Creating a document");
             Word.Document objDoc = objWord.Documents.Add();
@@ -130,6 +130,13 @@ namespace Journal
             
             Console.WriteLine($"Focus on WinWord app");
             objWord.Activate();
+            Console.WriteLine($"Bye.");
+            SetCursorPos(972, 1028);
+            SetCursorPos(-1950, 800);
+            SetCursorPos(-1950, 1240);
+            LeftMouseClick(-1950, 1240);
+
+            /*
             BringMainWindowToFront("WINWORD.EXE");
             objWord.Visible = true;
             objWord.WindowState = Word.WdWindowState.wdWindowStateMaximize;
@@ -142,10 +149,10 @@ namespace Journal
 
                 // do something with windowHandle
 
-                
+
                 GetWindowRect(windowHandle, ref rct);
 
-                
+
             }
             SetCursorPos(972, 1028);
             SetCursorPos(-1950, 800);
@@ -154,6 +161,7 @@ namespace Journal
             LeftMouseClick(-1950, 1240);
             Console.WriteLine((int)((rct.Left + rct.Right) / 2));
             Console.WriteLine((int)((rct.Bottom + rct.Top) / 2));
+            */
         }
 
         static string strHeader1Text()
