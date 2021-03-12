@@ -13,7 +13,7 @@ namespace Journal
 {
     class Program
     {
-        const string VERSION = "v0.98";
+        const string VERSION = "v0.99";
         const string JOURNAL_PATH = @"C:\Users\engrb\OneDrive\bugs\Journal";
 
         [DllImport("user32.dll")]
@@ -62,7 +62,7 @@ namespace Journal
         {
             SetCursorPos(xpos, ypos);
             mouse_event(MOUSEEVENTF_LEFTDOWN, xpos, ypos, 0, 0);
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(1000);
             mouse_event(MOUSEEVENTF_LEFTUP, xpos, ypos, 0, 0);
         }
 
@@ -130,11 +130,12 @@ namespace Journal
             
             Console.WriteLine($"Focus on WinWord app");
             objWord.Activate();
+            BringMainWindowToFront("WinWord");
             Console.WriteLine($"Bye.");
             SetCursorPos(972, 1028);
             SetCursorPos(-1950, 800);
             SetCursorPos(-1950, 1240);
-            LeftMouseClick(-1950, 1240);
+            LeftMouseClick(-1993, 1408);
 
             /*
             BringMainWindowToFront("WINWORD.EXE");
